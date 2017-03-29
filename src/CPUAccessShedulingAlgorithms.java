@@ -3,7 +3,7 @@ import java.util.ListIterator;
 public class CPUAccessShedulingAlgorithms {
 
 	public static void main(String[] args) {
-		ProcessList processes = ProcessList.createFromFile("New-Best.txt");
+		ProcessList processes = ProcessList.createFromFile("New-Worst.txt");
 		
 		FCFS fcfs = new FCFS();
 		SJF sjf = new SJF();
