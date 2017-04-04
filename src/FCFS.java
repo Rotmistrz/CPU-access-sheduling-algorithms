@@ -32,7 +32,7 @@ public class FCFS implements ProcessQueue {
 			realWaiting = totalTime;
 			
 			waitingTime = realWaiting;
-			totalTime += process.workTime + 2;
+			totalTime += process.workTime + 5;
 
 			totalWaitingTime += waitingTime;
 			

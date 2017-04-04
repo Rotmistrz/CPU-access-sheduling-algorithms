@@ -73,7 +73,7 @@ public class RR implements ProcessQueue {
 				
 				
 				
-				totalTime += timeToAdd + 2;
+				totalTime += timeToAdd + 5;
 				
 				process.increaseWaitingTime(totalTime - process.lastWaitingTime);
 				
