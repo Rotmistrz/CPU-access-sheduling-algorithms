@@ -10,7 +10,7 @@ public class CPUAccessShedulingAlgorithms {
 			
 			FCFS fcfs = new FCFS();
 			SJF sjf = new SJF();
-			RR rr = new RR(10);
+			RR rr = new RR(20);
 			SJFw sjfw = new SJFw();
 			
 			ListIterator<Process> it = processes.listIterator();
