@@ -66,11 +66,12 @@ public class SJF implements ProcessQueue {
 	}
 	
 	public int countAverageWaitingTime() {
-		int n = 15; // amount of loop iteration
+		int n = 100; // amount of loop iteration
 		int totalTime = 0;
 		int i = 0;
 		
 		totalTime += fcfs.countAverageWaitingTime();
+		totalTime += processes.size() * processes.size();
 		i++;
 		
 		for(int j = 0; j < n; j++) {
