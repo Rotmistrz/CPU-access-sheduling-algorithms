@@ -36,23 +36,7 @@ public class SJFw extends SJF {
 			}
 			
 			currentTime += current.workTime;
-			
-			/**if(time < current.comeTime) {
-				real = current.comeTime + current.workTime;
-			} else {
-				real = current.workTime;
-			}
-			
-			time += real;**/
-			
-			/**if(p.workTime < current.workTime && p.comeTime <= time) {
-				it.set(p);
-				it.add(current);
-				return this;
-			}**/
 		}
-		
-		//time = time + p.comeTime + p.workTime;
 		
 		it.add(p);
 		return this;

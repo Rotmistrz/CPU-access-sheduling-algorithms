@@ -44,8 +44,6 @@ public class RR implements ProcessQueue {
 					continue;
 				}
 				
-				//System.out.println("tmpTime = " + tmpTime + " totalTime = " + totalTime);
-				
 				if(process.comeTime <= totalTime) {
 					flag = false;
 				}
@@ -59,8 +57,6 @@ public class RR implements ProcessQueue {
 					totalTime = process.comeTime;
 				}
 				
-				//System.out.println(process.id + " " + process.workTime + "(" + totalTime + ")");
-				
 				if(process.workTime > timeQuantum) {
 					timeToAdd = timeQuantum;
 					
@@ -70,8 +66,6 @@ public class RR implements ProcessQueue {
 					timeToAdd = process.workTime;
 					process.deactivate();
 				}
-				
-				
 				
 				totalTime += timeToAdd + 5;
 				
@@ -97,10 +91,6 @@ public class RR implements ProcessQueue {
 			i++;
 			tt += process.waitingTime;
 		}
-		
-		//System.out.println("Czas wszystkich procesów: " + wholeTime);
-		
-		//double d = (double) tt/i;
 		
 		return (int) tt/i;
 	}

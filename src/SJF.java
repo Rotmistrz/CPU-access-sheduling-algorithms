@@ -43,23 +43,7 @@ public class SJF implements ProcessQueue {
 					}
 				}
 			}
-			
-			/**if(time < current.comeTime) {
-				real = current.comeTime + current.workTime;
-			} else {
-				real = current.workTime;
-			}
-			
-			time += real;**/
-			
-			/**if(p.workTime < current.workTime && p.comeTime <= time) {
-				it.set(p);
-				it.add(current);
-				return this;
-			}**/
 		}
-		
-		//time = time + p.comeTime + p.workTime;
 		
 		it.add(p);
 		return this;
@@ -103,78 +87,8 @@ public class SJF implements ProcessQueue {
 			totalTime += process.workTime + 5;
 
 			totalWaitingTime += waitingTime;
-			
-			//wholeTime += process.workTime;
-			
-			//System.out.println(process.id + " " + process.workTime + "(" + totalWaitingTime + ")");
 		}
-		
-		//System.out.println("Czas wszystkich procesów: " + totalTime);
-		
-		// double d = (double) totalWaitingTime/n;
-		
-		return (int) totalWaitingTime/n;
-	}
-	
-	public double oldCountAverageWaitingTime() { // 30.03.2017
-		Iterator<Process> it = processes.iterator();
-		
-		int waitingTime = 0;
-		int totalWaitingTime = 0;
-		int totalTime = 0;
-		int n = 0;
-		int realWaiting = 0;
-		
-		int wholeTime = 0;
-		
-		while(it.hasNext()) {
-			n++;
-			Process process = it.next();
-			
-			realWaiting = totalTime - process.comeTime;
-			
-			if(realWaiting >= 0) {
-				waitingTime = realWaiting;
-				totalTime += process.workTime;
-			} else {
-				waitingTime = 0;
-				totalTime += (Math.abs(realWaiting) + process.workTime);
-			}
-
-			totalWaitingTime += waitingTime + 2;
-			
-			wholeTime += process.workTime;
-			
-			System.out.println(process.id + " " + process.workTime + "(" + totalWaitingTime + ")");
-		}
-		
-		System.out.println("Czas wszystkich procesów: " + wholeTime);
-		
-		//double d = (double) totalWaitingTime/n;
 		
 		return totalWaitingTime/n;
 	}
-	
-	/**
-	 * public double countAverageWaitingTime() {
-		Iterator<Process> it = processes.iterator();
-		
-		int waitingTime = 0;
-		int totalTime = 0;
-		int n = 0;
-		
-		while(it.hasNext()) {
-			n++;
-			Process process = it.next();
-			
-			totalTime += waitingTime;
-			waitingTime = process.workTime;
-			
-			System.out.println(process.id + " " + process.workTime + "(" + totalTime + ")");
-		}
-		
-		double d = (double) totalTime/n;
-		
-		return d;
-	} **/
 }

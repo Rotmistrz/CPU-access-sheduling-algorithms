@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -44,7 +45,7 @@ public class ProcessList {
 		return processes.listIterator();
 	}
 	
-	public static ProcessList createFromFile(String filename) {
+	public static ProcessList createFromFile(String filename) throws IOException {
 		ProcessList processList = new ProcessList();
 		
 		int id;
@@ -54,12 +55,12 @@ public class ProcessList {
 		String line;
 		String[] data;
 		
+		Scanner file = new Scanner(Paths.get(filename), "UTF-8");
+		
 		try {
-			Scanner file = new Scanner(Paths.get(filename), "UTF-8");
-			
 			while((line = file.nextLine()) != null) {
 				data = Base.split(line, " ");
-
+	
 				//id = Integer.parseInt(data[0]);
 				comeTime = Integer.parseInt(data[0]);
 				workTime = Integer.parseInt(data[1]);
@@ -68,14 +69,12 @@ public class ProcessList {
 				
 				processList.add(process);
 			}
+		} catch(NoSuchElementException e) {
 			
-			file.close();
-		} catch (NoSuchElementException e) {
-			
-		} catch (Exception e) {
-			
+		} catch(Exception e) {
+			throw e;
 		} finally {
-			//file.close();
+			file.close();
 		}
 		
 		return processList;

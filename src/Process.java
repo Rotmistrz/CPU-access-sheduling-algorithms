@@ -1,9 +1,9 @@
 
 public class Process {
 	public int id;
-	public int comeTime; /* [ms] */
-	public int workTime; /* [ms] */
-	public int waitingTime; /* [ms] */
+	public int comeTime;
+	public int workTime;
+	public int waitingTime;
 	public boolean active;
 	public int lastWaitingTime;
 	
